@@ -9,7 +9,8 @@ list comes from the public dev.to feed. No dependencies beyond Python 3, no toke
 The page uses `style.css` (linked relatively), `avatar.png` for the top-bar brand mark and
 favicon, and `og.png` for social previews. All assets are local; the only cross-origin
 request is the existing Apify run-count refresh. The dataset preview uses the real sample
-headlines in `docs-people-search.md`; a dash means the sample did not provide a matched value.
+rows from the LinkedIn People Search Scraper README on the Store; a dash means the sample did
+not provide a matched value.
 
 Build or refresh, from this directory:
 
@@ -19,8 +20,7 @@ Fetch and validate without changing `index.html`:
 
     python3 build.py --dry
 
-No package installation, bundler or other build step is needed. Desktop and mobile review
-screenshots are kept in `shots/`.
+No package installation, bundler or other build step is needed.
 
 The build stops if a new actor appears on the Store that the script has no copy for, so the page
 can never silently miss one. `.nojekyll` makes Pages serve the files as they are.
