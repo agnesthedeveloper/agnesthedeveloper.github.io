@@ -14,84 +14,105 @@
 <meta property="og:description" content="Independent developer. Web scrapers and data tools for B2B teams in the US, UK and EU: ad intelligence, people, companies, jobs. Pay per result.">
 <meta property="og:url" content="https://agnesthedeveloper.github.io/">
 <meta property="og:image" content="https://agnesthedeveloper.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@agnesthedev">
+<meta name="twitter:title" content="Agnes Maina: pay-per-result web scrapers on Apify">
+<meta name="twitter:description" content="Independent developer. Web scrapers and data tools for B2B teams in the US, UK and EU: ad intelligence, people, companies, jobs. Pay per result.">
+<meta name="twitter:image" content="https://agnesthedeveloper.github.io/og.png">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Agnes Maina", "url": "https://agnesthedeveloper.github.io/", "jobTitle": "Independent developer", "description": "Independent developer. Web scrapers and data tools for B2B teams in the US, UK and EU: ad intelligence, people, companies, jobs. Pay per result.", "sameAs": ["https://apify.com/agnes.developer.queen", "https://github.com/agnesthedeveloper", "https://dev.to/agnes_the_dev_queen", "https://x.com/agnesthedev"]}</script>
-<style>
-:root{--ink:#1a1a1a;--muted:#5f6368;--line:#e6e6e6;--accent:#0b5fff}
-body{margin:0;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
-main{max-width:800px;margin:0 auto;padding:40px 20px 60px}
-header{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-header>div{flex:1;min-width:0}
-header img{width:88px;height:88px;border-radius:50%}
-h1{font-size:28px;margin:0}
-.bio{margin:4px 0 6px;color:var(--muted)}
-.links a{margin-right:14px}
-.lede{margin:28px 0 0;font-size:17px}
-h2{font-size:20px;margin:40px 0 8px}
-h3{font-size:13px;margin:22px 0 4px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
-table{width:100%;border-collapse:collapse;font-size:15px}
-td{padding:9px 8px 9px 0;border-top:1px solid var(--line);vertical-align:top}
-td.price{white-space:nowrap;text-align:right;color:var(--muted);padding-right:0}
-a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
-a.code{font-size:13px;margin-left:6px}
-.muted{color:var(--muted)}.small{font-size:14px}
-code{font-size:14px;background:#f3f4f6;padding:1px 5px;border-radius:4px}
-ul.articles{padding:0;list-style:none;margin:0}
-ul.articles li{padding:8px 0;border-top:1px solid var(--line)}
-.date{color:var(--muted);font-size:13px;margin-left:8px;white-space:nowrap}
-footer{margin-top:50px;font-size:13px;color:var(--muted)}
-@media(max-width:600px){table,tbody,tr,td{display:block}tr{padding:9px 0;border-top:1px solid var(--line)}td{border-top:0;padding:0}td.price{text-align:left;margin-top:2px}}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
-<header>
-  <img src="avatar.png" alt="" width="88" height="88">
-  <div>
-    <h1>Agnes Maina</h1>
-    <p class="bio">Independent developer. Web scrapers and data tools for B2B teams in the US, UK and EU: ad intelligence, people, companies, jobs. Pay per result.</p>
-    <p class="links"><a href="https://apify.com/agnes.developer.queen?utm_source=site&utm_medium=portfolio&utm_campaign=q4launch">Apify Store</a> <a href="https://github.com/agnesthedeveloper">GitHub</a> <a href="https://dev.to/agnes_the_dev_queen">Dev.to</a> <a href="https://x.com/agnesthedev">@agnesthedev</a></p>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#main"><img src="avatar.png" alt="Agnes Maina brand mark" width="36" height="36"><span>Agnes Maina</span></a>
+    <nav aria-label="Main navigation">
+      <div class="section-links"><a href="#actors">Actors</a><a href="#pricing">Pricing</a><a href="#writing">Writing</a><a href="#contact">Contact</a></div>
+      <a class="store-link" href="https://apify.com/agnes.developer.queen?utm_source=site&utm_medium=portfolio&utm_campaign=q4launch">Apify Store <span aria-hidden="true">↗</span></a>
+    </nav>
   </div>
 </header>
 
-<p class="lede"><strong>12 actors</strong> on the Apify Store, <strong id="runs">702</strong> runs so far. No LinkedIn login, no cookies, no account of yours at risk. You pay per row that clears each actor's check; rows that don't are delivered with <code>charged: false</code> at $0.</p>
+<main id="main">
+<div class="hero-area">
+  <section class="hero" aria-labelledby="hero-title">
+    <h1 id="hero-title">Public-data scrapers,<br><span>priced per result.</span></h1>
+    <p class="hero-subhead"><span>12 pay-per-result scrapers on the Apify Store: ad libraries, LinkedIn people and companies, jobs.</span> <span>No LinkedIn login or cookies; no account of yours at risk.</span></p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="https://apify.com/agnes.developer.queen?utm_source=site&utm_medium=portfolio&utm_campaign=q4launch">Browse the actors <span aria-hidden="true">↗</span></a>
+      <a class="button button-secondary" href="#pricing">How pricing works</a>
+    </div>
+    <p class="run-count"><span class="status-dot" aria-hidden="true"></span><strong>12 actors</strong> on the Apify Store <span class="separator" aria-hidden="true">·</span> <span><strong id="runs">702</strong> runs so far.</span></p>
+  </section>
 
-<h2>Actors</h2>
-<h3>Ad intelligence</h3>
-<table>
-<tr><td><a href="https://apify.com/agnes.developer.queen/linkedin-ad-library-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>LinkedIn Ad Library Scraper</strong></a><br><span class="muted">Every ad a company runs on LinkedIn: copy, creative, payer, run dates, impressions by country and targeting where LinkedIn publishes them.</span> <a class="code" href="https://github.com/agnesthedeveloper/linkedin-ad-library-scraper">code</a></td><td class="price">$0.003 / ad</td></tr>
-<tr><td><a href="https://apify.com/agnes.developer.queen/google-ads-transparency-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>Google Ads Transparency Scraper</strong></a><br><span class="muted">Every ad a brand runs on Google, by domain or advertiser name: text, image or video, first and last shown dates, countries.</span> <a class="code" href="https://github.com/agnesthedeveloper/google-ads-transparency-scraper">code</a></td><td class="price">$0.0025 / ad</td></tr>
-<tr><td><a href="https://apify.com/agnes.developer.queen/meta-ad-library-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>Facebook Ad Library Scraper</strong></a><br><span class="muted">Every ad a brand runs on Facebook and Instagram: copy, image or video, start date, days running and EU reach.</span></td><td class="price">$0.005 / ad</td></tr>
-</table>
-<h3>People and companies</h3>
-<table>
-<tr><td><a href="https://apify.com/agnes.developer.queen/linkedin-people-search-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>LinkedIn People Search Scraper</strong></a><br><span class="muted">Public profiles by job title, company and location. Charged only when the person&#x27;s own headline confirms the title and company.</span> <a class="code" href="https://github.com/agnesthedeveloper/linkedin-people-search-scraper">code</a></td><td class="price">$0.015 / confirmed profile</td></tr>
-<tr><td><a href="https://apify.com/agnes.developer.queen/linkedin-profile-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>LinkedIn Profile Scraper</strong></a><br><span class="muted">Profile URLs in; name, headline, location, current and past companies, education and followers out. Private profiles are free.</span></td><td class="price">$0.003 / profile</td></tr>
-<tr><td><a href="https://apify.com/agnes.developer.queen/linkedin-company-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>LinkedIn Company Scraper</strong></a><br><span class="muted">Company URL or name in; industry, size, headquarters, founded year, website, specialties and followers out.</span> <a class="code" href="https://github.com/agnesthedeveloper/linkedin-company-scraper">code</a></td><td class="price">$0.005 / company</td></tr>
-<tr><td><a href="https://apify.com/agnes.developer.queen/linkedin-new-hires-finder?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>LinkedIn New Hires Finder</strong></a><br><span class="muted">A company in; the decision makers who joined recently, with the month they started and the company they left.</span></td><td class="price">$0.50 / new hire</td></tr>
-<tr><td><a href="https://apify.com/agnes.developer.queen/b2b-leads-finder?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>B2B Leads Finder</strong></a><br><span class="muted">Public LinkedIn profiles by title, company and location, with email evidence where an address can be derived.</span></td><td class="price">$0.004 / lead with verified email<br>$0.002 probable<br>$0.0005 without email</td></tr>
-</table>
-<h3>Jobs</h3>
-<table>
-<tr><td><a href="https://apify.com/agnes.developer.queen/linkedin-jobs-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>LinkedIn Jobs Scraper</strong></a><br><span class="muted">Full job descriptions, company, location and posted date, with a monitor mode that only delivers jobs you haven&#x27;t seen.</span> <a class="code" href="https://github.com/agnesthedeveloper/linkedin-jobs-scraper">code</a></td><td class="price">$0.002 / job</td></tr>
-<tr><td><a href="https://apify.com/agnes.developer.queen/indeed-jobs-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>Indeed Jobs Scraper</strong></a><br><span class="muted">Salary ranges, company ratings and optional full descriptions, with the same monitor mode and a group-by-company view.</span></td><td class="price">$0.001 / job<br>$0.002 with description</td></tr>
-</table>
-<h3>Other</h3>
-<table>
-<tr><td><a href="https://apify.com/agnes.developer.queen/google-hotels-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>Google Hotels Scraper</strong></a><br><span class="muted">Prices for the dates and guests you choose: nightly and total price, rating, reviews, star class, coordinates and website for every hotel on the results page.</span></td><td class="price">$0.002 / hotel<br>$0.008 with offers</td></tr>
-<tr><td><a href="https://apify.com/agnes.developer.queen/bilibili-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>Bilibili Scraper</strong></a><br><span class="muted">Video search, details, popular, danmaku, comments, subtitle transcripts and profiles.</span></td><td class="price">$0.012 / video<br>$0.008 comment</td></tr>
-</table>
-<p class="muted small">Each run also carries a start fee: $0.00005 on most actors, $0.005 on LinkedIn People Search Scraper and LinkedIn Company Scraper; Bilibili Scraper has none. Every Apify account gets $5 of free platform credit each month, enough to try any of them.</p>
+  <figure class="dataset-card">
+    <div class="window-bar">
+      <svg class="window-dots" width="42" height="10" viewBox="0 0 42 10" aria-hidden="true"><circle cx="5" cy="5" r="4" fill="#d1d5db"/><circle cx="21" cy="5" r="4" fill="#d1d5db"/><circle cx="37" cy="5" r="4" fill="#d1d5db"/></svg>
+      <p id="dataset-title">LinkedIn People Search Scraper <span aria-hidden="true">·</span> run output</p>
+    </div>
+    <div class="dataset-heading"><span>Public profiles</span><span class="dataset-label">Pay per confirmed match</span></div>
+    <div class="dataset-scroll" role="region" aria-labelledby="dataset-title" tabindex="0">
+      <!-- Real test-run headlines from docs-people-search.md. Missing matched values stay blank. -->
+      <table class="dataset-table">
+        <caption class="sr-only">Documented sample rows. A dash means no matched value was provided in the sample.</caption>
+        <thead><tr><th scope="col">Headline</th><th scope="col">Matched title</th><th scope="col">Company</th><th scope="col">Charged</th></tr></thead>
+        <tbody>
+          <tr><td>Chief Financial Officer, Asana</td><td>CFO</td><td>Asana</td><td><span class="pill charged">charged: true</span></td></tr>
+          <tr><td>Chief Financial Officer at Linear Controls</td><td class="empty">—</td><td class="empty">—</td><td><span class="pill not-charged">charged: false</span></td></tr>
+          <tr><td>Executive Business Partner to CTO @ Vercel</td><td class="empty">—</td><td class="empty">—</td><td><span class="pill not-charged">charged: false</span></td></tr>
+          <tr><td>Head of Stock Administration at Asana</td><td class="empty">—</td><td class="empty">—</td><td><span class="pill not-charged">charged: false</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Real headlines from the actor README. <span>— = no matched value in the sample.</span><span class="scroll-hint">Scroll to see all columns →</span></figcaption>
+  </figure>
+  <p class="dataset-note">For People Search, you pay per confirmed match; other rows arrive with <code>charged: false</code> at $0.</p>
+</div>
 
-<h2>How pricing works</h2>
-<ul>
-<li>You pay per result, not per compute minute. The price in the table is the whole story, plus the per-run start fee.</li>
-<li>Every row carries a <code>charged</code> flag. Rows that don't clear the actor's check (wrong company, incomplete job, duplicate) are still delivered so you can see them, at $0.</li>
-<li>Every actor reads public pages only. There is no login to hand over, so no account of yours is at risk.</li>
+<div class="content">
+<section id="actors" class="actors section" aria-labelledby="actors-title">
+  <div class="section-heading"><h2 id="actors-title">Actors</h2><span class="section-label">Public data. Pay per result.</span></div>
+  <section class="actor-group" aria-labelledby="group-ad-intelligence"><h3 id="group-ad-intelligence">Ad intelligence</h3>
+<table class="actor-table" aria-labelledby="group-ad-intelligence"><tbody>
+<tr><th scope="row"><a class="actor-title" href="https://apify.com/agnes.developer.queen/linkedin-ad-library-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch">LinkedIn Ad Library Scraper</a><p class="actor-description">Every ad a company runs on LinkedIn: copy, creative, payer, run dates, impressions by country and targeting where LinkedIn publishes them.</p> <a class="code" href="https://github.com/agnesthedeveloper/linkedin-ad-library-scraper">code</a></th><td class="price">$0.003 / ad</td></tr>
+<tr><th scope="row"><a class="actor-title" href="https://apify.com/agnes.developer.queen/google-ads-transparency-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch">Google Ads Transparency Scraper</a><p class="actor-description">Every ad a brand runs on Google, by domain or advertiser name: text, image or video, first and last shown dates, countries.</p> <a class="code" href="https://github.com/agnesthedeveloper/google-ads-transparency-scraper">code</a></th><td class="price">$0.0025 / ad</td></tr>
+<tr><th scope="row"><a class="actor-title" href="https://apify.com/agnes.developer.queen/meta-ad-library-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch">Facebook Ad Library Scraper</a><p class="actor-description">Every ad a brand runs on Facebook and Instagram: copy, image or video, start date, days running and EU reach.</p></th><td class="price">$0.005 / ad</td></tr>
+</tbody></table></section>
+<section class="actor-group" aria-labelledby="group-people-and-companies"><h3 id="group-people-and-companies">People and companies</h3>
+<table class="actor-table" aria-labelledby="group-people-and-companies"><tbody>
+<tr><th scope="row"><a class="actor-title" href="https://apify.com/agnes.developer.queen/linkedin-people-search-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch">LinkedIn People Search Scraper</a><p class="actor-description">Public profiles by job title, company and location. Charged only when the person&#x27;s own headline confirms the requested match.</p> <a class="code" href="https://github.com/agnesthedeveloper/linkedin-people-search-scraper">code</a></th><td class="price">$0.015 / confirmed profile</td></tr>
+<tr><th scope="row"><a class="actor-title" href="https://apify.com/agnes.developer.queen/linkedin-profile-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch">LinkedIn Profile Scraper</a><p class="actor-description">Profile URLs in; name, headline, location, current and past companies, education and followers out. Private profiles are free.</p></th><td class="price">$0.003 / profile</td></tr>
+<tr><th scope="row"><a class="actor-title" href="https://apify.com/agnes.developer.queen/linkedin-company-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch">LinkedIn Company Scraper</a><p class="actor-description">Company URL or name in; industry, size, headquarters, founded year, website, specialties and followers out.</p> <a class="code" href="https://github.com/agnesthedeveloper/linkedin-company-scraper">code</a></th><td class="price">$0.005 / company</td></tr>
+<tr><th scope="row"><a class="actor-title" href="https://apify.com/agnes.developer.queen/linkedin-new-hires-finder?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch">LinkedIn New Hires Finder</a><p class="actor-description">A company in; the decision makers who started a role recently, with the month they started and their previous company.</p></th><td class="price">$0.50 / new hire</td></tr>
+<tr><th scope="row"><a class="actor-title" href="https://apify.com/agnes.developer.queen/b2b-leads-finder?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch">B2B Leads Finder</a><p class="actor-description">Public LinkedIn profiles by title, company and location, with email evidence where an address can be derived.</p></th><td class="price">$0.004 / lead with verified email<br>$0.002 probable<br>$0.0005 without email</td></tr>
+</tbody></table></section>
+<section class="actor-group" aria-labelledby="group-jobs"><h3 id="group-jobs">Jobs</h3>
+<table class="actor-table" aria-labelledby="group-jobs"><tbody>
+<tr><th scope="row"><a class="actor-title" href="https://apify.com/agnes.developer.queen/linkedin-jobs-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch">LinkedIn Jobs Scraper</a><p class="actor-description">Full job descriptions, company, location and posted date, with a monitor mode that only delivers jobs you haven&#x27;t seen.</p> <a class="code" href="https://github.com/agnesthedeveloper/linkedin-jobs-scraper">code</a></th><td class="price">$0.002 / job</td></tr>
+<tr><th scope="row"><a class="actor-title" href="https://apify.com/agnes.developer.queen/indeed-jobs-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch">Indeed Jobs Scraper</a><p class="actor-description">Salary ranges, company ratings and optional full descriptions, with the same monitor mode and a group-by-company view.</p></th><td class="price">$0.001 / job<br>$0.002 with description</td></tr>
+</tbody></table></section>
+<section class="actor-group" aria-labelledby="group-other"><h3 id="group-other">Other</h3>
+<table class="actor-table" aria-labelledby="group-other"><tbody>
+<tr><th scope="row"><a class="actor-title" href="https://apify.com/agnes.developer.queen/google-hotels-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch">Google Hotels Scraper</a><p class="actor-description">Prices for the dates and guests you choose: nightly and total price, rating, reviews, star class, coordinates and website for every hotel on the results page.</p></th><td class="price">$0.002 / hotel<br>$0.008 with offers</td></tr>
+<tr><th scope="row"><a class="actor-title" href="https://apify.com/agnes.developer.queen/bilibili-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch">Bilibili Scraper</a><p class="actor-description">Video search, details, popular, danmaku, comments, subtitle transcripts and profiles.</p></th><td class="price">$0.012 / video<br>$0.008 comment</td></tr>
+</tbody></table></section>
+  <p class="pricing-note">Each run also carries a start fee: $0.00005 on most actors, $0.005 on LinkedIn People Search Scraper and LinkedIn Company Scraper; Bilibili Scraper has none. Every Apify account gets $5 of free platform credit each month, enough to try any of them.</p>
+</section>
+
+<section id="pricing" class="section pricing" aria-labelledby="pricing-title">
+<h2 id="pricing-title">How pricing works</h2>
+<ul class="pricing-list">
+<li>You pay per result, not per compute minute, plus the start fee where applicable. See each actor's Store page for all price tiers.</li>
+<li>People Search rows carry a <code>charged</code> flag. Unconfirmed matches are still delivered, at $0.</li>
+<li>The LinkedIn actors need no login or cookies, so no LinkedIn account of yours is at risk.</li>
 </ul>
+</section>
 
-<h2>Writing</h2>
+<section id="writing" class="section writing" aria-labelledby="writing-title">
+<div class="section-heading"><h2 id="writing-title">Writing</h2><a class="section-label" href="https://dev.to/agnes_the_dev_queen">Dev.to <span aria-hidden="true">↗</span></a></div>
 <p class="muted">Measured runs, what each source actually publishes, and where the data stops.</p>
 <ul class="articles">
 <li><a href="https://dev.to/agnes_the_dev_queen/google-hotels-prices-for-your-exact-dates-without-a-browser-5284">Google Hotels prices for your exact dates, without a browser</a><span class="date">21 Oct 2026</span></li>
@@ -105,12 +126,19 @@ footer{margin-top:50px;font-size:13px;color:var(--muted)}
 <li><a href="https://dev.to/agnes_the_dev_queen/linkedin-people-search-without-login-same-3-searches-5-matches-last-week-and-0-this-week-5fbp">LinkedIn people search without login: same 3 searches, 5 matches last week and 0 this week</a><span class="date">5 Oct 2026</span></li>
 <li><a href="https://dev.to/agnes_the_dev_queen/i-ran-the-same-nike-search-on-the-meta-ad-library-three-times-and-got-three-different-answers-6h">I ran the same Nike search on the Meta Ad Library three times and got three different answers</a><span class="date">3 Oct 2026</span></li>
 </ul>
+</section>
 
-<h2>Contact</h2>
+<section id="contact" class="section contact" aria-labelledby="contact-title">
+<h2 id="contact-title">Contact</h2>
 <p>A bug or a missing field: the Issues tab on the actor's Apify page, that's where I track and answer them. Anything else: <a href="https://x.com/agnesthedev">@agnesthedev</a> on X or <a href="https://github.com/agnesthedeveloper">GitHub</a>.</p>
-
-<footer>Updated 31 October 2026. Prices and counts are read from the Apify Store when this page is built.</footer>
+<div class="about">
+  <p class="bio">Independent developer. Web scrapers and data tools for B2B teams in the US, UK and EU: ad intelligence, people, companies, jobs. Pay per result.</p>
+  <p class="links"><a href="https://apify.com/agnes.developer.queen?utm_source=site&utm_medium=portfolio&utm_campaign=q4launch">Apify Store</a><a href="https://github.com/agnesthedeveloper">GitHub</a><a href="https://dev.to/agnes_the_dev_queen">Dev.to</a><a href="https://x.com/agnesthedev">@agnesthedev</a></p>
+</div>
+</section>
+</div>
 </main>
+<footer class="footer"><p>Updated 31 October 2026. Prices and counts are read from the Apify Store when this page is built.</p></footer>
 <script>
 fetch("https://api.apify.com/v2/store?username=agnes.developer.queen&limit=100")
   .then(function(r){return r.json()})

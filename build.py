@@ -48,7 +48,7 @@ ACTORS = [
      [("ad", "ad")], None),
     ("linkedin-people-search-scraper", "People and companies", "LinkedIn People Search Scraper",
      "Public profiles by job title, company and location. Charged only when the person's own "
-     "headline confirms the title and company.",
+     "headline confirms the requested match.",
      [("matched-profile", "confirmed profile")], f"{GITHUB}/linkedin-people-search-scraper"),
     ("linkedin-profile-scraper", "People and companies", "LinkedIn Profile Scraper",
      "Profile URLs in; name, headline, location, current and past companies, education and "
@@ -59,8 +59,8 @@ ACTORS = [
      "specialties and followers out.",
      [("company", "company")], f"{GITHUB}/linkedin-company-scraper"),
     ("linkedin-new-hires-finder", "People and companies", "LinkedIn New Hires Finder",
-     "A company in; the decision makers who joined recently, with the month they started "
-     "and the company they left.",
+     "A company in; the decision makers who started a role recently, with the month they started "
+     "and their previous company.",
      [("new-hire", "new hire")], None),
     ("b2b-leads-finder", "People and companies", "B2B Leads Finder",
      "Public LinkedIn profiles by title, company and location, with email evidence where an "
@@ -150,15 +150,18 @@ def actor_rows(rows):
     for g in GROUPS:
         if not rows[g]:
             continue
-        out.append(f"<h3>{esc(g)}</h3>\n<table>")
+        group_id = "group-" + g.lower().replace(" ", "-")
+        out.append(f'<section class="actor-group" aria-labelledby="{group_id}">'
+                   f'<h3 id="{group_id}">{esc(g)}</h3>\n'
+                   f'<table class="actor-table" aria-labelledby="{group_id}"><tbody>')
         for name, title, line, parts, code in rows[g]:
             url = f"{STORE}/{name}?{UTM}"
             code_html = f' <a class="code" href="{esc(code)}">code</a>' if code else ""
             price_html = "<br>".join(esc(p) for p in parts)  # one tier per line, keeps the column narrow
-            out.append(f'<tr><td><a href="{esc(url)}"><strong>{esc(title)}</strong></a><br>'
-                       f'<span class="muted">{esc(line)}</span>{code_html}</td>'
+            out.append(f'<tr><th scope="row"><a class="actor-title" href="{esc(url)}">{esc(title)}</a>'
+                       f'<p class="actor-description">{esc(line)}</p>{code_html}</th>'
                        f'<td class="price">{price_html}</td></tr>')
-        out.append("</table>")
+        out.append("</tbody></table></section>")
     return "\n".join(out)
 
 
@@ -186,71 +189,99 @@ TEMPLATE = """<!doctype html>
 <meta property="og:description" content="@@BIO@@">
 <meta property="og:url" content="@@SITE@@/">
 <meta property="og:image" content="@@SITE@@/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@@X_HANDLE@@">
+<meta name="twitter:title" content="Agnes Maina: pay-per-result web scrapers on Apify">
+<meta name="twitter:description" content="@@BIO@@">
+<meta name="twitter:image" content="@@SITE@@/og.png">
 <script type="application/ld+json">@@JSONLD@@</script>
-<style>
-:root{--ink:#1a1a1a;--muted:#5f6368;--line:#e6e6e6;--accent:#0b5fff}
-body{margin:0;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
-main{max-width:800px;margin:0 auto;padding:40px 20px 60px}
-header{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-header>div{flex:1;min-width:0}
-header img{width:88px;height:88px;border-radius:50%}
-h1{font-size:28px;margin:0}
-.bio{margin:4px 0 6px;color:var(--muted)}
-.links a{margin-right:14px}
-.lede{margin:28px 0 0;font-size:17px}
-h2{font-size:20px;margin:40px 0 8px}
-h3{font-size:13px;margin:22px 0 4px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
-table{width:100%;border-collapse:collapse;font-size:15px}
-td{padding:9px 8px 9px 0;border-top:1px solid var(--line);vertical-align:top}
-td.price{white-space:nowrap;text-align:right;color:var(--muted);padding-right:0}
-a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
-a.code{font-size:13px;margin-left:6px}
-.muted{color:var(--muted)}.small{font-size:14px}
-code{font-size:14px;background:#f3f4f6;padding:1px 5px;border-radius:4px}
-ul.articles{padding:0;list-style:none;margin:0}
-ul.articles li{padding:8px 0;border-top:1px solid var(--line)}
-.date{color:var(--muted);font-size:13px;margin-left:8px;white-space:nowrap}
-footer{margin-top:50px;font-size:13px;color:var(--muted)}
-@media(max-width:600px){table,tbody,tr,td{display:block}tr{padding:9px 0;border-top:1px solid var(--line)}td{border-top:0;padding:0}td.price{text-align:left;margin-top:2px}}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
-<header>
-  <img src="avatar.png" alt="" width="88" height="88">
-  <div>
-    <h1>@@NAME@@</h1>
-    <p class="bio">@@BIO@@</p>
-    <p class="links"><a href="@@STORE@@?@@UTM@@">Apify Store</a> <a href="@@GITHUB@@">GitHub</a> <a href="@@DEVTO_URL@@">Dev.to</a> <a href="@@X_URL@@">@@X_HANDLE@@</a></p>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#main"><img src="avatar.png" alt="Agnes Maina brand mark" width="36" height="36"><span>@@NAME@@</span></a>
+    <nav aria-label="Main navigation">
+      <div class="section-links"><a href="#actors">Actors</a><a href="#pricing">Pricing</a><a href="#writing">Writing</a><a href="#contact">Contact</a></div>
+      <a class="store-link" href="@@STORE@@?@@UTM@@">Apify Store <span aria-hidden="true">↗</span></a>
+    </nav>
   </div>
 </header>
 
-<p class="lede"><strong>@@N@@ actors</strong> on the Apify Store, <strong id="runs">@@RUNS@@</strong> runs so far. No LinkedIn login, no cookies, no account of yours at risk. You pay per row that clears each actor's check; rows that don't are delivered with <code>charged: false</code> at $0.</p>
+<main id="main">
+<div class="hero-area">
+  <section class="hero" aria-labelledby="hero-title">
+    <h1 id="hero-title">Public-data scrapers,<br><span>priced per result.</span></h1>
+    <p class="hero-subhead"><span>@@N@@ pay-per-result scrapers on the Apify Store: ad libraries, LinkedIn people and companies, jobs.</span> <span>No LinkedIn login or cookies; no account of yours at risk.</span></p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="@@STORE@@?@@UTM@@">Browse the actors <span aria-hidden="true">↗</span></a>
+      <a class="button button-secondary" href="#pricing">How pricing works</a>
+    </div>
+    <p class="run-count"><span class="status-dot" aria-hidden="true"></span><strong>@@N@@ actors</strong> on the Apify Store <span class="separator" aria-hidden="true">·</span> <span><strong id="runs">@@RUNS@@</strong> runs so far.</span></p>
+  </section>
 
-<h2>Actors</h2>
-@@ACTORS@@
-<p class="muted small">@@STARTNOTE@@ Every Apify account gets $5 of free platform credit each month, enough to try any of them.</p>
+  <figure class="dataset-card">
+    <div class="window-bar">
+      <svg class="window-dots" width="42" height="10" viewBox="0 0 42 10" aria-hidden="true"><circle cx="5" cy="5" r="4" fill="#d1d5db"/><circle cx="21" cy="5" r="4" fill="#d1d5db"/><circle cx="37" cy="5" r="4" fill="#d1d5db"/></svg>
+      <p id="dataset-title">LinkedIn People Search Scraper <span aria-hidden="true">·</span> run output</p>
+    </div>
+    <div class="dataset-heading"><span>Public profiles</span><span class="dataset-label">Pay per confirmed match</span></div>
+    <div class="dataset-scroll" role="region" aria-labelledby="dataset-title" tabindex="0">
+      <!-- Real test-run headlines from docs-people-search.md. Missing matched values stay blank. -->
+      <table class="dataset-table">
+        <caption class="sr-only">Documented sample rows. A dash means no matched value was provided in the sample.</caption>
+        <thead><tr><th scope="col">Headline</th><th scope="col">Matched title</th><th scope="col">Company</th><th scope="col">Charged</th></tr></thead>
+        <tbody>
+          <tr><td>Chief Financial Officer, Asana</td><td>CFO</td><td>Asana</td><td><span class="pill charged">charged: true</span></td></tr>
+          <tr><td>Chief Financial Officer at Linear Controls</td><td class="empty">—</td><td class="empty">—</td><td><span class="pill not-charged">charged: false</span></td></tr>
+          <tr><td>Executive Business Partner to CTO @ Vercel</td><td class="empty">—</td><td class="empty">—</td><td><span class="pill not-charged">charged: false</span></td></tr>
+          <tr><td>Head of Stock Administration at Asana</td><td class="empty">—</td><td class="empty">—</td><td><span class="pill not-charged">charged: false</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Real headlines from the actor README. <span>— = no matched value in the sample.</span><span class="scroll-hint">Scroll to see all columns →</span></figcaption>
+  </figure>
+  <p class="dataset-note">For People Search, you pay per confirmed match; other rows arrive with <code>charged: false</code> at $0.</p>
+</div>
 
-<h2>How pricing works</h2>
-<ul>
-<li>You pay per result, not per compute minute. The price in the table is the whole story, plus the per-run start fee.</li>
-<li>Every row carries a <code>charged</code> flag. Rows that don't clear the actor's check (wrong company, incomplete job, duplicate) are still delivered so you can see them, at $0.</li>
-<li>Every actor reads public pages only. There is no login to hand over, so no account of yours is at risk.</li>
+<div class="content">
+<section id="actors" class="actors section" aria-labelledby="actors-title">
+  <div class="section-heading"><h2 id="actors-title">Actors</h2><span class="section-label">Public data. Pay per result.</span></div>
+  @@ACTORS@@
+  <p class="pricing-note">@@STARTNOTE@@ Every Apify account gets $5 of free platform credit each month, enough to try any of them.</p>
+</section>
+
+<section id="pricing" class="section pricing" aria-labelledby="pricing-title">
+<h2 id="pricing-title">How pricing works</h2>
+<ul class="pricing-list">
+<li>You pay per result, not per compute minute, plus the start fee where applicable. See each actor's Store page for all price tiers.</li>
+<li>People Search rows carry a <code>charged</code> flag. Unconfirmed matches are still delivered, at $0.</li>
+<li>The LinkedIn actors need no login or cookies, so no LinkedIn account of yours is at risk.</li>
 </ul>
+</section>
 
-<h2>Writing</h2>
+<section id="writing" class="section writing" aria-labelledby="writing-title">
+<div class="section-heading"><h2 id="writing-title">Writing</h2><a class="section-label" href="@@DEVTO_URL@@">Dev.to <span aria-hidden="true">↗</span></a></div>
 <p class="muted">Measured runs, what each source actually publishes, and where the data stops.</p>
 <ul class="articles">
 @@ARTICLES@@
 </ul>
+</section>
 
-<h2>Contact</h2>
+<section id="contact" class="section contact" aria-labelledby="contact-title">
+<h2 id="contact-title">Contact</h2>
 <p>A bug or a missing field: the Issues tab on the actor's Apify page, that's where I track and answer them. Anything else: <a href="@@X_URL@@">@@X_HANDLE@@</a> on X or <a href="@@GITHUB@@">GitHub</a>.</p>
-
-<footer>Updated @@DATE@@. Prices and counts are read from the Apify Store when this page is built.</footer>
+<div class="about">
+  <p class="bio">@@BIO@@</p>
+  <p class="links"><a href="@@STORE@@?@@UTM@@">Apify Store</a><a href="@@GITHUB@@">GitHub</a><a href="@@DEVTO_URL@@">Dev.to</a><a href="@@X_URL@@">@@X_HANDLE@@</a></p>
+</div>
+</section>
+</div>
 </main>
+<footer class="footer"><p>Updated @@DATE@@. Prices and counts are read from the Apify Store when this page is built.</p></footer>
 <script>
 fetch("https://api.apify.com/v2/store?username=@@USER@@&limit=100")
   .then(function(r){return r.json()})
