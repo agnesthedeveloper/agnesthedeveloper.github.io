@@ -22,6 +22,7 @@
 body{margin:0;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
 main{max-width:800px;margin:0 auto;padding:40px 20px 60px}
 header{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+header>div{flex:1;min-width:0}
 header img{width:88px;height:88px;border-radius:50%}
 h1{font-size:28px;margin:0}
 .bio{margin:4px 0 6px;color:var(--muted)}
@@ -40,7 +41,7 @@ ul.articles{padding:0;list-style:none;margin:0}
 ul.articles li{padding:8px 0;border-top:1px solid var(--line)}
 .date{color:var(--muted);font-size:13px;margin-left:8px;white-space:nowrap}
 footer{margin-top:50px;font-size:13px;color:var(--muted)}
-@media(max-width:600px){td.price{white-space:normal}}
+@media(max-width:600px){table,tbody,tr,td{display:block}tr{padding:9px 0;border-top:1px solid var(--line)}td{border-top:0;padding:0}td.price{text-align:left;margin-top:2px}}
 </style>
 </head>
 <body>
@@ -69,17 +70,17 @@ footer{margin-top:50px;font-size:13px;color:var(--muted)}
 <tr><td><a href="https://apify.com/agnes.developer.queen/linkedin-profile-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>LinkedIn Profile Scraper</strong></a><br><span class="muted">Profile URLs in; name, headline, location, current and past companies, education and followers out. Private profiles are free.</span></td><td class="price">$0.003 / profile</td></tr>
 <tr><td><a href="https://apify.com/agnes.developer.queen/linkedin-company-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>LinkedIn Company Scraper</strong></a><br><span class="muted">Company URL or name in; industry, size, headquarters, founded year, website, specialties and followers out.</span> <a class="code" href="https://github.com/agnesthedeveloper/linkedin-company-scraper">code</a></td><td class="price">$0.005 / company</td></tr>
 <tr><td><a href="https://apify.com/agnes.developer.queen/linkedin-new-hires-finder?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>LinkedIn New Hires Finder</strong></a><br><span class="muted">A company in; the decision makers who joined recently, with the month they started and the company they left.</span></td><td class="price">$0.50 / new hire</td></tr>
-<tr><td><a href="https://apify.com/agnes.developer.queen/b2b-leads-finder?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>B2B Leads Finder</strong></a><br><span class="muted">Public LinkedIn profiles by title, company and location, with email evidence where an address can be derived.</span></td><td class="price">$0.004 / lead with verified email, $0.002 probable, $0.0005 without email</td></tr>
+<tr><td><a href="https://apify.com/agnes.developer.queen/b2b-leads-finder?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>B2B Leads Finder</strong></a><br><span class="muted">Public LinkedIn profiles by title, company and location, with email evidence where an address can be derived.</span></td><td class="price">$0.004 / lead with verified email<br>$0.002 probable<br>$0.0005 without email</td></tr>
 </table>
 <h3>Jobs</h3>
 <table>
 <tr><td><a href="https://apify.com/agnes.developer.queen/linkedin-jobs-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>LinkedIn Jobs Scraper</strong></a><br><span class="muted">Full job descriptions, company, location and posted date, with a monitor mode that only delivers jobs you haven&#x27;t seen.</span> <a class="code" href="https://github.com/agnesthedeveloper/linkedin-jobs-scraper">code</a></td><td class="price">$0.002 / job</td></tr>
-<tr><td><a href="https://apify.com/agnes.developer.queen/indeed-jobs-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>Indeed Jobs Scraper</strong></a><br><span class="muted">Salary ranges, company ratings and optional full descriptions, with the same monitor mode and a group-by-company view.</span></td><td class="price">$0.001 / job, $0.002 with description</td></tr>
+<tr><td><a href="https://apify.com/agnes.developer.queen/indeed-jobs-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>Indeed Jobs Scraper</strong></a><br><span class="muted">Salary ranges, company ratings and optional full descriptions, with the same monitor mode and a group-by-company view.</span></td><td class="price">$0.001 / job<br>$0.002 with description</td></tr>
 </table>
 <h3>Other</h3>
 <table>
-<tr><td><a href="https://apify.com/agnes.developer.queen/google-hotels-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>Google Hotels Scraper</strong></a><br><span class="muted">Prices for the dates and guests you choose: nightly and total price, rating, reviews, star class, coordinates and website for every hotel on the results page.</span></td><td class="price">$0.002 / hotel, $0.008 with offers</td></tr>
-<tr><td><a href="https://apify.com/agnes.developer.queen/bilibili-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>Bilibili Scraper</strong></a><br><span class="muted">Video search, details, popular, danmaku, comments, subtitle transcripts and profiles.</span></td><td class="price">$0.012 / video, $0.008 comment</td></tr>
+<tr><td><a href="https://apify.com/agnes.developer.queen/google-hotels-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>Google Hotels Scraper</strong></a><br><span class="muted">Prices for the dates and guests you choose: nightly and total price, rating, reviews, star class, coordinates and website for every hotel on the results page.</span></td><td class="price">$0.002 / hotel<br>$0.008 with offers</td></tr>
+<tr><td><a href="https://apify.com/agnes.developer.queen/bilibili-scraper?utm_source=site&amp;utm_medium=portfolio&amp;utm_campaign=q4launch"><strong>Bilibili Scraper</strong></a><br><span class="muted">Video search, details, popular, danmaku, comments, subtitle transcripts and profiles.</span></td><td class="price">$0.012 / video<br>$0.008 comment</td></tr>
 </table>
 <p class="muted small">Each run also carries a start fee: $0.00005 on most actors, $0.005 on LinkedIn People Search Scraper and LinkedIn Company Scraper; Bilibili Scraper has none. Every Apify account gets $5 of free platform credit each month, enough to try any of them.</p>
 

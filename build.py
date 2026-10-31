@@ -151,12 +151,13 @@ def actor_rows(rows):
         if not rows[g]:
             continue
         out.append(f"<h3>{esc(g)}</h3>\n<table>")
-        for name, title, line, price, code in rows[g]:
+        for name, title, line, parts, code in rows[g]:
             url = f"{STORE}/{name}?{UTM}"
             code_html = f' <a class="code" href="{esc(code)}">code</a>' if code else ""
+            price_html = "<br>".join(esc(p) for p in parts)  # one tier per line, keeps the column narrow
             out.append(f'<tr><td><a href="{esc(url)}"><strong>{esc(title)}</strong></a><br>'
                        f'<span class="muted">{esc(line)}</span>{code_html}</td>'
-                       f'<td class="price">{esc(price)}</td></tr>')
+                       f'<td class="price">{price_html}</td></tr>')
         out.append("</table>")
     return "\n".join(out)
 
@@ -193,6 +194,7 @@ TEMPLATE = """<!doctype html>
 body{margin:0;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
 main{max-width:800px;margin:0 auto;padding:40px 20px 60px}
 header{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+header>div{flex:1;min-width:0}
 header img{width:88px;height:88px;border-radius:50%}
 h1{font-size:28px;margin:0}
 .bio{margin:4px 0 6px;color:var(--muted)}
@@ -211,7 +213,7 @@ ul.articles{padding:0;list-style:none;margin:0}
 ul.articles li{padding:8px 0;border-top:1px solid var(--line)}
 .date{color:var(--muted);font-size:13px;margin-left:8px;white-space:nowrap}
 footer{margin-top:50px;font-size:13px;color:var(--muted)}
-@media(max-width:600px){td.price{white-space:normal}}
+@media(max-width:600px){table,tbody,tr,td{display:block}tr{padding:9px 0;border-top:1px solid var(--line)}td{border-top:0;padding:0}td.price{text-align:left;margin-top:2px}}
 </style>
 </head>
 <body>
@@ -283,7 +285,7 @@ def main():
             parts.append(f"{usd(prices[key])} / {label}" if i == 0 else f"{usd(prices[key])} {label}")
         start = [v for k, v in prices.items() if "start" in k]
         start_fees[title] = start[0] if start else None
-        rows[group].append((name, title, line, ", ".join(parts), code))
+        rows[group].append((name, title, line, parts, code))
     runs = sum((i.get("stats") or {}).get("totalRuns") or 0 for i in items)
     n = sum(len(v) for v in rows.values())
     articles = get(f"https://dev.to/api/articles?username={DEVTO}&per_page=100")
