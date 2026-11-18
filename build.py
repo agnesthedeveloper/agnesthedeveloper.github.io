@@ -82,7 +82,7 @@ ACTORS = [
     ("bilibili-scraper", "Other", "Bilibili Scraper",
      "Video search, details, popular, danmaku, comments, subtitle transcripts and profiles.",
      [("video", "video"), ("comment", "comment")], None),
-    ("cdw-price-monitor", "Other", "CDW Price Tracker",
+    ("cdw-price-tracker", "Other", "CDW Price Tracker",
      "CDW product URLs or CDW numbers in; advertised price, list price, stock status and part "
      "numbers out. Optional price change tracking between runs.",
      [("product", "product")], None),
