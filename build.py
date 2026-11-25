@@ -86,6 +86,14 @@ ACTORS = [
      "CDW product URLs or CDW numbers in; advertised price, list price, stock status and part "
      "numbers out. Optional price change tracking between runs.",
      [("product", "product")], None),
+    ("cunard-scraper", "Other", "Cunard Scraper",
+     "Every Cunard sailing on sale with its current fare, ship, dates and ports, for the US or UK "
+     "market. Optional price change tracking with a webhook.",
+     [("sailing", "priced sailing")], None),
+    ("po-cruises-scraper", "Other", "P&O Cruises Scraper",
+     "Every P&O Cruises sailing on sale with its fare in GBP, ship, dates and ports, fly cruises "
+     "included. Optional price change tracking with a webhook.",
+     [("sailing", "priced sailing")], None),
 ]
 GROUPS = ["Ad intelligence", "People and companies", "Jobs", "Other"]
 
